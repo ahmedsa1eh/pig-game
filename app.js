@@ -76,35 +76,32 @@ rollBtn.addEventListener("click", function () {
 holdBtn.addEventListener("click", function () {
   // check the active player and if its player one is active
   if (player0.classList.contains("player--active")) {
+    //  add the current score to his score and switch to player two
+    score0 += currentScore0;
+    score0El.textContent = score0;
+    currentScore0 = 0;
+    currentScore0El.textContent = currentScore0;
+    player0.classList.remove("player--active");
+    player1.classList.add("player--active");
     // we check player one score and if its >= 100 we give him the winner class
     if (score0 >= 100) {
       player0.classList.add("player--winner");
-    }
-    // if not >= 100 we add the current score to his score and switch to player two
-    else {
-      score0 += currentScore0;
-      score0El.textContent = score0;
-      currentScore0 = 0;
-      currentScore0El.textContent = currentScore0;
       player0.classList.remove("player--active");
-      player1.classList.add("player--active");
     }
   }
 
   // if the player 2 is the active player
   else {
+    // add the current score to his score and switch to player one
+    score1 += currentScore1;
+    score1El.textContent = score1;
+    currentScore1 = 0;
+    currentScore1El.textContent = currentScore1;
+    player0.classList.add("player--active");
+    player1.classList.remove("player--active");
     // we check player two score and if its >= 100 we give him the winner class
     if (score1 >= 100) {
       player1.classList.add("player--winner");
-    }
-    // if not >= 100 we add the current score to his score and switch to player one
-    else {
-      score1 += currentScore1;
-      score1El.textContent = score1;
-      currentScore1 = 0;
-      currentScore1El.textContent = currentScore1;
-      player0.classList.add("player--active");
-      player1.classList.remove("player--active");
     }
   }
 });
