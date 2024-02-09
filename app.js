@@ -1,6 +1,6 @@
 "use strict";
-// so proud of ahmed ... man , u have implement the whole code by urself just using the flow-chart img .. keep going .. u will do it again  and better 
-// catching dom elements 
+// so proud of ahmed ... man , u have implement the whole code by urself just using the flow-chart img .. keep going .. u will do it again  and better
+// catching dom elements
 const score0El = document.querySelector("#score--0");
 const score1El = document.querySelector("#score--1");
 const diceImg = document.querySelector(".dice");
@@ -26,18 +26,18 @@ let score0 = 0;
 let score1 = 0;
 score0El.textContent = score0;
 score1El.textContent = score1;
-// roll button functionality 
+// roll button functionality
 rollBtn.addEventListener("click", function () {
-  // each click reassign the dice 
+  // each click reassign the dice
   dice = Math.trunc(Math.random() * 6) + 1;
   // display the dice img
   diceImg.classList.remove("hidden");
   // get the dice img dynamically based on the current dice number that has been created
   diceImg.src = `./images/dice-${dice}.png`;
-// check the dice number 
-// if it is not = 1 
+  // check the dice number
+  // if it is not = 1
   if (dice != 1) {
-// we check the active player and add the dice to the current score and  display its current score
+    // we check the active player and add the dice to the current score and  display its current score
     switch (player0.classList.contains("player--active")) {
       case true:
         currentScore0 += dice;
@@ -54,10 +54,8 @@ rollBtn.addEventListener("click", function () {
     //   currentScore1 += dice;
     //   currentScore1El.textContent = `${currentScore1}`;
     // }
-
-
-  } 
-  // if dice = 1 
+  }
+  // if dice = 1
   else {
     // check the active player and reset his current score to 0 and display it then switch player
     if (player0.classList.contains("player--active")) {
@@ -76,13 +74,13 @@ rollBtn.addEventListener("click", function () {
 
 // hold button
 holdBtn.addEventListener("click", function () {
-  // check the active player and if its player one is active 
+  // check the active player and if its player one is active
   if (player0.classList.contains("player--active")) {
-    // we check player one score and if its >= 100 we give him the winner class 
+    // we check player one score and if its >= 100 we give him the winner class
     if (score0 >= 100) {
       player0.classList.add("player--winner");
     }
-    // if not >= 100 we add the current score to his score and switch to player two 
+    // if not >= 100 we add the current score to his score and switch to player two
     else {
       score0 += currentScore0;
       score0El.textContent = score0;
@@ -91,16 +89,15 @@ holdBtn.addEventListener("click", function () {
       player0.classList.remove("player--active");
       player1.classList.add("player--active");
     }
-  } 
-  
+  }
+
   // if the player 2 is the active player
-  
   else {
-     // we check player two score and if its >= 100 we give him the winner class 
+    // we check player two score and if its >= 100 we give him the winner class
     if (score1 >= 100) {
       player1.classList.add("player--winner");
     }
-       // if not >= 100 we add the current score to his score and switch to player one 
+    // if not >= 100 we add the current score to his score and switch to player one
     else {
       score1 += currentScore1;
       score1El.textContent = score1;
@@ -111,10 +108,10 @@ holdBtn.addEventListener("click", function () {
     }
   }
 });
-// new game btn 
+// new game btn
 newGameBtn.addEventListener("click", function () {
-  // reset and display the current score and score of both players and display that , make the player 1 the active player , 
-  //hide dice img , reassign the dice to be not the same as the previous dice in the next game
+  // reset and display the current score and score of both players and display that , make the player 1 the active player ,
+  //hide dice img , reassign the dice to be not the same as the previous dice in the next game , remove the winner class too
   currentScore0 = 0;
   currentScore0El.textContent = currentScore0;
   currentScore1 = 0;
@@ -122,9 +119,11 @@ newGameBtn.addEventListener("click", function () {
   score0 = 0;
   score0El.textContent = score0;
   score1 = 0;
-  score1El.textContent=score1;
-  player0.classList.add('player--active')
-  player1.classList.remove("player--active")
-  dice =  Math.trunc(Math.random() * 6) + 1;
-  diceImg.classList.add("hidden")
+  score1El.textContent = score1;
+  player0.classList.add("player--active");
+  player1.classList.remove("player--active");
+  dice = Math.trunc(Math.random() * 6) + 1;
+  diceImg.classList.add("hidden");
+  player0.classList.remove("player--winner");
+  player1.classList.remove("player--winner");
 });
