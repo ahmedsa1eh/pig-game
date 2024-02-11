@@ -87,7 +87,7 @@ holdBtn.addEventListener("click", function () {
       player0.classList.remove("player--active");
       player1.classList.add("player--active");
       // we check player one score and if its >= 100 we give him the winner class
-      if (score0 >= 10) {
+      if (score0 >= 100) {
         player0.classList.add("player--winner");
         player0.classList.remove("player--active");
         Playing = false;
@@ -104,7 +104,7 @@ holdBtn.addEventListener("click", function () {
       player0.classList.add("player--active");
       player1.classList.remove("player--active");
       // we check player two score and if its >= 100 we give him the winner class
-      if (score1 >= 10) {
+      if (score1 >= 100) {
         player1.classList.add("player--winner");
         Playing = false;
       }
